@@ -21,6 +21,8 @@ header("location: profile.php"); // Redirecting To Profile Page
    <input name="submit" type="submit" value=" Login ">
    <span><?php echo $error; ?></span>
   </form>
+   
+   <H1> Klik hier om te registreren</h1>
  </div>
 </body>
 </html>
