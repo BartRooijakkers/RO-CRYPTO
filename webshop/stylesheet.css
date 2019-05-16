@@ -1,0 +1,232 @@
+@font-face { font-family: spaceranger; src: url('Font/spaceranger.ttf'); }
+.spaceranger { font-family: spaceranger; font-size: 4.2em; }
+
+body {
+  background-image: url("images/background.jpg");
+  background-repeat: repeat ;
+}
+
+/*logo*/
+.logo{
+  Width: 15%;
+  min-width: 50px;
+  height: 15%;
+  min-height: 50px;
+  margin-top: 1%;
+  margin-left: 12%;
+  float: left;
+}
+
+/*Navigation*/
+ul {
+  border-radius: 1px;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #00958E;
+  font-family: 'spaceranger';
+  width: 91.7%;
+  position: static;
+  box-shadow: 5px 5px 15px;
+  border: 2px solid orange;
+  margin-top:1%;
+}
+
+div.navigation {
+  position: absolute;
+  overflow: hidden;
+  width: 60%;
+  height: 10%;
+  margin-top: 7%;
+  margin-left: 26.5%;
+  margin-bottom: 1%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  background-color: #00958E;
+  text-align: center;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: white;
+}
+
+li:last-child {
+  float: right;
+}
+
+li a:hover {
+  background-color: #006b66;
+  color: #DDC379;
+}
+
+.active {
+  background-color: #DDC379;
+  color: #00958E;
+}
+
+/*Scroll bar*/
+div.bar {
+  margin-top: 12%;
+  margin-left: 25.5%;
+  margin-bottom: 1%;
+  position: absolute;
+  width: 58.5%;
+  border: 2px solid orange;
+  box-shadow: 5px 5px 15px;
+}
+
+/* content box */
+div.box {
+  background-image: linear-gradient(#00958E,#006b66);
+  margin-top: 17%;
+  margin-left: 22.5%;
+  position: absolute;
+  width: 61.5%;
+  min-width: 340px;
+  height: auto;
+  border-left: 2px solid orange;
+  border-right: 2px solid orange;
+  border-top: 2px solid orange;
+}
+
+/* Nieuws box op homepage*/
+div.nieuws {
+    font-family: 'spaceranger';
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+    background-color: #00544f;
+}
+
+div.nieuws h1 {
+  text-align: center;
+}
+
+div.nieuws p {
+  text-align: center;
+}
+
+/* Cryptoproducten op de coinspage */
+div.cryptocoin {
+    font-family: 'spaceranger';
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 90%;
+    height: 500px;
+    background-color: #00544f;
+}
+
+div.cryptocoin h1 {
+  text-align: center;
+}
+
+div.cryptocoin p {
+  text-align: center;
+}
+
+/* box op de loginpage */
+div.info {
+    font-family: 'spaceranger';
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+    background-color: #00544f;
+}
+
+div.info h1 {
+  text-align: center;
+}
+
+div.info p {
+  text-align: center;
+}
+
+/* Profiel pagina */
+div.profiel {
+    font-family: 'spaceranger';
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+    background-color: #00544f;
+}
+/* box op de loginpage */
+div.login {
+    font-family: 'spaceranger';
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+    background-color: #00544f;
+}
+
+form {
+  text-align: center;
+}
+
+/* gebruikersnaam en wachtwoord boxen */
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  width: 40%;
+  height: 50%;
+}
+
+/* Avatar afbeelding */
+img.avatar {
+  width: 40%;
+  height: 50%;
+  margin-top: 10%;
+  margin-left: 105%;
+  border: 1px solid black;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* Wachtwoord vergeten? */
+span.register {
+  float: center;
+  padding-top: 4px;
+}
+
+/* Footer DUUUUUUHHHHHHH */
+footer {
+  font-family: 'spaceranger';
+  text-align: center;
+  margin-left: 5%;
+  width: 90%;
+  height: 150px;
+  border: 1px solid black;
+  display: block;
+  background-color: #003532;
+}
