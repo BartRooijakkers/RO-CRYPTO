@@ -20,7 +20,7 @@
           <div class="navigation">
             <ul>
               <li><a href="Home.html">Home</a></li>
-              <li><a href="Coins.html">Coins</a></li>
+              <li><a href="coins.php">Coins</a></li>
               <li><a href="Info.html">Info</a></li>
               <li><a class="active" href="login.php">Login</a></li> <!-- DEZE VERANDERD MISSCHIEN NAAR PHP VOOR DE DATABASE???-->
             </ul>
@@ -54,7 +54,7 @@
                     <span class="register">Nog geen account? <a href="register.php">Registreer hier.</a></span>
                     <br>
                 </label>
-								<?php echo display_error(); ?>
+							<label class="error">	<?php echo display_error(); ?> </label>
               </div>
             </form>
           </div>

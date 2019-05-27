@@ -27,7 +27,7 @@ if (!isLoggedIn()) {
           <div class="navigation">
             <ul>
               <li><a href="Home.html">Home</a></li>
-              <li><a href="Coins.html">Coins</a></li>
+              <li><a href="coins.php">Coins</a></li>
               <li><a href="Info.html">Info</a></li>
               <li><a href="index.php">Login</a></li> <!-- DEZE VERANDERD MISSCHIEN NAAR PHP VOOR DE DATABASE???-->
             </ul>
@@ -52,7 +52,8 @@ if (!isLoggedIn()) {
 
 									 Uw E-mail: <?php echo ucfirst($_SESSION['user']['email']); ?>
 									<br>
-									<a href="index.php?logout='1'">logout</a>
+
+										<a href="index.php?logout='1'">logout</a>
 								</h2>
 
 							<?php endif ?>

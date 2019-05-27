@@ -2,7 +2,7 @@
 include('../functions.php');
 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "U dient eerst in te loggen";
 	header('location: ../login.php');
 }
 
@@ -33,7 +33,7 @@ if (isset($_GET['logout'])) {
 	<div class="navigation">
 		<ul>
 			<li><a href="../Home.html">Home</a></li>
-			<li><a href="../Coins.html">Coins</a></li>
+			<li><a href="../Coins.php">Coins</a></li>
 			<li><a href="../Info.html">Info</a></li>
 			<li><a href="../index.php">Login</a></li> <!-- DEZE VERANDERD MISSCHIEN NAAR PHP VOOR DE DATABASE???-->
 		</ul>
@@ -69,8 +69,11 @@ if (isset($_GET['logout'])) {
 
 						(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
 						<br>
-						<a href="home.php?logout='1'">logout</a>
-                       &nbsp; <a href="create_user.php"> + add user</a>
+						<a href="create_user.php"> Gebruiker toevoegen</a>
+						<br>
+						<a href="add_product.php"> Product toevoegen
+						<br>
+							<a href="home.php?logout='1'">logout</a>
 
 
 				<?php endif ?>
