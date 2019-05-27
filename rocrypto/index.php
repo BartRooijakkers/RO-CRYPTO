@@ -63,7 +63,7 @@ if (!isLoggedIn()) {
 
 
               </div>
-            <footer>HIER KOMT ALLE FOOTER SHIT IN </footer>
+            <footer>HIER KOMT ALLE FOOTER  IN </footer>
 
         </div>
 

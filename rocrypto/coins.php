@@ -104,8 +104,8 @@ if(isset($_SESSION["artikel"])){
 				<td><img src="<?php echo $item["image"]; ?>" class="mand-item-image" /><?php echo $item["name"]; ?></td>
 				<td><?php echo $item["coins"]; ?></td>
 				<td style="text-align:right;"><?php echo $item["stuks"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["prijs"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td  style="text-align:right;"><?php echo "€ ".$item["prijs"]; ?></td>
+				<td  style="text-align:right;"><?php echo "€ ". number_format($item_price,2); ?></td>
 				<td style="text-align:center;"><a href="coins.php?action=remove&coins=<?php echo $item["coins"]; ?>" class="btnRemoveAction"><img src="images/icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
@@ -117,7 +117,7 @@ if(isset($_SESSION["artikel"])){
 <tr>
 <td class="prijs" colspan="2" align="right">Totaal Prijs:</td>
 <td align="right"><?php echo $total_quantity; ?></td>
-<td align="right" colspan="2"><?php echo "$ ".number_format($total_price, 2); ?></td>
+<td align="right" colspan="2"><?php echo "€ ".number_format($total_price, 2); ?></td>
 <td></td>
 </tr>
 </tbody>
@@ -144,7 +144,7 @@ if(isset($_SESSION["artikel"])){
 			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
 			<div class="product-tile-footer">
 			<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
-			<div class="product-price"><?php echo "$".$product_array[$key]["prijs"]; ?></div>
+			<div class="product-price"><?php echo "€".$product_array[$key]["prijs"]; ?></div>
 			<div class="mand-action"><input type="text" class="product-stuks" name="stuks" value="1" size="2" /><input type="submit" value="Toevoegen" class="btnToevoegen" /></div>
 			</div>
 			</form>

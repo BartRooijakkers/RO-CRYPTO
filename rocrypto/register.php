@@ -37,7 +37,7 @@
 
             <!--Dit is de login box op de loginpage-->
             <div class="login">
-               <form action="" method="post"> <!--Naam hiervan kan veranderen voor de database shit-->
+               <form action="" method="post"> <!--Naam hiervan kan veranderen voor de database -->
                 <div class="imgcontainer">
                   <img src="images/loginavatar.png" alt="avatar" class="avatar">
                 </div>
@@ -67,7 +67,7 @@
               </div>
             </form>
           </div>
-            <footer>HIER KOMT ALLE FOOTER SHIT IN HALFIES</footer>
+            <footer>HIER KOMT ALLE FOOTER IN HALFIES</footer>
 
         </div>
 

@@ -1,49 +1,58 @@
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "rocrypto");
 
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+session_start();
+
+// Database connectie
+$db = mysqli_connect('localhost', 'root', '', 'rocrypto');
+function e($val){
+	global $db;
+	return mysqli_real_escape_string($db, trim($val));
 }
+//
+$productnaam = "";
+$coinsaantal    = "";
+$imgpath    = "";
+$prijs    = "";
+$errors   = array();
+
+// toevoeg knop
 if (isset($_POST['addproduct_btn'])) {
 	addproduct();
 }
 
-// Registreer USER
+// Product toevoegen
 function addproduct(){
-	global $db, $errors, $productnaam, $coinsaantal;
+	global $db, $errors, $productnaam, $email;
 
 	// Haalt de gegevens uit de form
-	$productnaam   =  e($_POST['productnaam']);
+	$productnaam    =  e($_POST['productnaam']);
 	$coinsaantal      =  e($_POST['coinsaantal']);
-	$imgpath  =  e($_POST['imgpath']);
-	$prijs  =  e($_POST['prijs']);
+	$imgpath   =  e($_POST['imgpath']);
+	$prijs   =  e($_POST['coinprice']);
 
 	// Zorgt dat de form correct is ingevuld
 	if (empty($productnaam)) {
-		array_push($errors, "Productnaam is verplicht");
+		array_push($errors, "productnaam is verplicht");
 	}
 	if (empty($coinsaantal)) {
-    array_push($errors, "Aantal coins is verplicht");
+		array_push($errors, "aantal is verplicht");
 	}
 	if (empty($imgpath)) {
-		array_push($errors, "Image path is verplicht");
+		array_push($errors, "img is verplicht");
 	}
 	if (empty($prijs)) {
-		array_push($errors, "Prijs is verplicht");
+		array_push($errors, "prijs is verplicht");
 	}
 
-	// registeert gebruikers wanneer er geen errors in de form zitten
+	// registeert producten wanneer er geen errors in de form zitten
 	if (count($errors) == 0) {
-
 			$query = "INSERT INTO producten (name, coins, image, prijs)
 					  VALUES('$productnaam', '$coinsaantal', '$imgpath', '$prijs')";
-			mysqli_query($db, $query);
-			$_SESSION['success']  = "Niewe Product toegevoegd!";
-			header('location: home.php');
-		}
-}
+					  mysqli_query($db, $query);
 
-?>
+	}else{
+			echo ("fout");
+
+
+		}
+	}

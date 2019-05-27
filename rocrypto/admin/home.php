@@ -81,7 +81,7 @@ if (isset($_GET['logout'])) {
 		</div>
 	</div>
 </div>
-<footer>HIER KOMT ALLE FOOTER SHIT IN </footer>
+<footer>HIER KOMT ALLE FOOTER  IN </footer>
 </div>
 </body>
 </html>
