@@ -20,7 +20,7 @@
           <div class="navigation">
             <ul>
               <li><a href="Home.html">Home</a></li>
-              <li><a href="Coins.html">Coins</a></li>
+              <li><a href="coins.php">Coins</a></li>
               <li><a href="Info.html">Info</a></li>
               <li><a class="active" href="login.php">Login</a></li> <!-- DEZE VERANDERD MISSCHIEN NAAR PHP VOOR DE DATABASE???-->
             </ul>
@@ -54,11 +54,38 @@
                     <span class="register">Nog geen account? <a href="register.php">Registreer hier.</a></span>
                     <br>
                 </label>
-								<?php echo display_error(); ?>
+							<label class="error">	<?php echo display_error(); ?> </label>
               </div>
             </form>
           </div>
-            <footer>HIER KOMT ALLE FOOTER SHIT IN HALFIES</footer>
+          <footer>
+            <div class="footerone">
+            <p><b>Adres gegevens:<br></b>
+              Hofstraat 14<br>
+              1741CD Schagen
+              <br>
+              <br>
+              <b>Telefoonnummer:</b><br>
+              0223 611 230
+            </div>
+              <div class="footertwo">
+            <p><b> Support: <br></b>
+              Klik <a href="support.html">hier</a> om een support formulier in te vullen.
+            </div>
+            <div class="footerthree">
+            <p><b> Volg ons op social media!<br></b>
+              <br>
+              <a href="https://www.facebook.com/ROCKopvanNoordHolland/">
+              <img src="images/facebook.png">
+            </a>
+            <a href="https://www.instagram.com/rockopvannoordholland/">
+              <img src="images/instagram.png">
+            </a>
+            <a href="https://www.linkedin.com/company/roc-kop-van-noord-holland/">
+              <img src="images/linkedin.png">
+            </a>
+            </div>
+          </footer>
 
         </div>
 

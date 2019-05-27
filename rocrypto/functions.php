@@ -1,72 +1,70 @@
 <?php
 session_start();
 
-// connect to database
+// Database connectie
 $db = mysqli_connect('localhost', 'root', '', 'rocrypto');
 
-// variable declaration
+//
 $username = "";
 $email    = "";
 $errors   = array();
 
-// call the register() function if register_btn is clicked
+// Registreer knop
 if (isset($_POST['register_btn'])) {
 	register();
 }
 
-// REGISTER USER
+// Registreer USER
 function register(){
-	// call these variables with the global keyword to make them available in function
 	global $db, $errors, $username, $email;
 
-	// receive all input values from the form. Call the e() function
-    // defined below to escape form values
+	// Haalt de gegevens uit de form
 	$username    =  e($_POST['username']);
 	$email       =  e($_POST['email']);
 	$password_1  =  e($_POST['password_1']);
 	$password_2  =  e($_POST['password_2']);
 
-	// form validation: ensure that the form is correctly filled
+	// Zorgt dat de form correct is ingevuld
 	if (empty($username)) {
-		array_push($errors, "Username is required");
+		array_push($errors, "Gebruikersnaam is verplicht");
 	}
 	if (empty($email)) {
-		array_push($errors, "Email is required");
+		array_push($errors, "Email is verplicht");
 	}
 	if (empty($password_1)) {
-		array_push($errors, "Password is required");
+		array_push($errors, "Wachtwoord is verplicht");
 	}
 	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
+		array_push($errors, "Wachtwoord komt niet overeen");
 	}
 
-	// register user if there are no errors in the form
+	// registeert gebruikers wanneer er geen errors in de form zitten
 	if (count($errors) == 0) {
-		$password = md5($password_1);//encrypt the password before saving in the database
+		$password = md5($password_1);//Encrypt het wachtwoord voor het opslaan
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
 			$query = "INSERT INTO users (username, email, user_type, password)
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
-			$_SESSION['success']  = "New user successfully created!!";
+			$_SESSION['success']  = "Niewe gebruiker aangemaakt!";
 			header('location: home.php');
 		}else{
 			$query = "INSERT INTO users (username, email, user_type, password)
 					  VALUES('$username', '$email', 'user', '$password')";
 			mysqli_query($db, $query);
 
-			// get id of the created user
+			// Haalt ID van de gebruiker op
 			$logged_in_user_id = mysqli_insert_id($db);
 
-			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-			$_SESSION['success']  = "You are now logged in";
+			$_SESSION['user'] = getUserById($logged_in_user_id); // Start een sessie met ingelogde gebruiker
+			$_SESSION['success']  = "Succesvol ingelogd";
 			header('location: index.php');
 		}
 	}
 }
 
-// return user array from their id
+// Haalt gebruikersgegevens op
 function getUserById($id){
 	global $db;
 	$query = "SELECT * FROM users WHERE id=" . $id;
@@ -76,7 +74,7 @@ function getUserById($id){
 	return $user;
 }
 
-// escape string
+//
 function e($val){
 	global $db;
 	return mysqli_real_escape_string($db, trim($val));
@@ -101,57 +99,56 @@ function isLoggedIn()
 		return false;
 	}
 }
-// log user out if logout button clicked
+// uitlog knop
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
 	header("location: login.php");
 }
 
-// call the login() function if register_btn is clicked
+// Zorgt dat je inlogt na registreren
 if (isset($_POST['login_btn'])) {
 	login();
 }
 
-// LOGIN USER
+// login USER
 function login(){
 	global $db, $username, $errors;
 
-	// grap form values
+	// fORM WAARDES
 	$username = e($_POST['username']);
 	$password = e($_POST['password']);
 
-	// make sure form is filled properly
+	// zorgt dat de form is ingevuld
 	if (empty($username)) {
-		array_push($errors, "Username is required");
+		array_push($errors, "Gebruikersnaam is verplicht");
 	}
 	if (empty($password)) {
-		array_push($errors, "Password is required");
+		array_push($errors, "Wachtwoord is verplicht");
 	}
 
-	// attempt login if no errors on form
+	// Login als er geen errors zijn
 	if (count($errors) == 0) {
 		$password = md5($password);
 
 		$query = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
 		$results = mysqli_query($db, $query);
 
-		if (mysqli_num_rows($results) == 1) { // user found
-			// check if user is admin or user
+		if (mysqli_num_rows($results) == 1) { // User gevonden
+			// Controlleert User_type
 			$logged_in_user = mysqli_fetch_assoc($results);
 			if ($logged_in_user['user_type'] == 'admin') {
 
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Succesvol ingelogd";
 				header('location: admin/home.php');
 			}else{
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
-
+				$_SESSION['success']  = "Succesvol ingelod";
 				header('location: index.php');
 			}
 		}else {
-			array_push($errors, "Wrong username/password combination");
+			array_push($errors, "Gebruikersnaam/Wachtwoord is niet correct");
 		}
 	}
 }
@@ -164,5 +161,7 @@ function isAdmin()
 		return false;
 	}
 }
+
+//Product Toevoegen
 
 ?>
